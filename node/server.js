@@ -1,9 +1,15 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const fs =require('fs');
+var express =require('express');
+var app= express();
+app.get('/add',function(req,resp){
+    resp.send("addition of number ="+(Number(req.query.num)+Number(req.query.num1)));
+    console.log("ADdition");
+});
+app.get('/mul',function(req,resp){
+    resp.send("mul of number ="+(Number(req.query.num)*Number(req.query.num1)));
+ console.log("multiplication");
+});
 app.get('/',function(req,resp){
-    resp.sendFile(path.join(__dirname+'/index.html'));
+    resp.send("mul of number" );
+ console.log("multiplication");
 });
 app.listen(3000);
-console.log("Server is started");
