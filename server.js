@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     password: "root123",
     database: "test"
 })
-const PORT = 3002;
+
 app.use(cors());
 app.use(express.json())
 
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 app.post('/adddata', (req, res) => {
     console.log(req.body)
     const { name, rollno, email, batch } = req.body;
-    const query1 = `insert into student values ('${name}','${rollno}','${email}','${batch}')`;
+    const query1 = `insert into emp values ('${name}','${rollno}','${email}','${batch}')`;
     db.query(query1, (err, result) => {
         if (err) {
             console.log(err);
@@ -50,6 +50,6 @@ app.delete('/delete/:empno', (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`)
+app.listen(3000, () => {
+    console.log("Server is running on 3000")
 })
